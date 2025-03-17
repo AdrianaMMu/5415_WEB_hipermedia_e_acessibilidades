@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Design Layout CSS Interno</title>
+
+    <style type="text/css">
+        #global {
+            margin:0;   /* Alinhando o layout no centro */
+            width:800px; /* Tamanho do layout */
+        }
+
+    #topo,#rodape {
+        width:100%;
+        border-top:1px solid #000;
+        background:#369;
+        clear:both;
+        float:left;
+        background-color:#ccc;
+    }
+    #conteudo {
+display:inline; /* Evita o bug da margem duplicada */
+float:left; /* Flutuando à esquerda */
+width:600px;
+
+}
+#menu {
+position:absolute;
+top: 59%;
+left: 50%;
+width:200px;
+height:470px;
+margin-top: -160px; 
+margin-left: 200px; 
+border: 1px solid #2956C6;
+background-color: #eee;
+text-align: center;
+
+}
+a {
+	color:#369;
+}
+a:hover {
+	color:#fff;
+	background:#369;
+	text-decoration:none;
+}
+</style> 
+</head>
+<body>
+<div id="global">
+    <div id="topo"></div>
+        <div id="conteúdo"></div>
+        <div id="menu"></div>
+    <div id="rodape"></div>
+</div> <!--FIM DIV GLOBAL-->
+</body>
+</html>
+
+ 

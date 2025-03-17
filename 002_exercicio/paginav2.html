@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Design Layout CSS Interno</title>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #global {
+            margin: 0 auto;
+            width: 800px; 
+        }
+
+        #topo, #rodape {
+            width: 100%;
+            min-height: 80px; 
+            background: #ccc;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 80px; 
+        }
+
+        #conteudo {
+            float: left; 
+            width: 600px; 
+            height: 300px; 
+            border: 1px solid #008080;
+            background-color: #eee;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        #menu {
+            float: left; 
+            width: 200px;
+            height: 300px; 
+            border: 1px solid #2956C6;
+            background-color: #eee;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        a {
+            color: #369;
+        }
+
+        a:hover {
+            color: #fff;
+            background: #369;
+            text-decoration: none;
+        }
+    </style> 
+</head>
+<body>
+    <div id="global">
+        <div id="topo"><h1>#TOPO</h1></div>
+
+        <div id="conteudo"><h1>#CONTEÚDO</h1></div>
+        <div id="menu"><h1>#MENU</h1></div>
+
+        <div id="rodape"><h1>#RODAPE</h1></div>
+    </div> <!-- FIM DIV GLOBAL -->
+</body>
+</html>
