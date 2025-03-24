@@ -11,9 +11,35 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
     <h1>Pedido de informações</h1>
+    <section id="form">
+        <form onsubmit="enviardados(); return false;">
+            <label>Nome:</label>
+            <input type="text" name="nome" id="nome" required><br>
+            <label>E-mail:</label>
+            <input type="email" name="mail" id="mail" required><br>
+            <label>Mensagem:</label><br>
+            <textarea name="msg" id="msg" required></textarea><br>
+            <button type="submit">Enviar</button>
 
+        </form>
+    </section>
+    <script>
+        $("form").submit(function(e){
+            e.preventDefault();
+    
+            const nome = $("#nome").val();
+            const mail = $("#mail").val();
+            const msg = $("#msg").val();
+            if(!nome||!mail||!msg){
+                alert("Todos os campos são obrigatórios");
+                return;
+            }
+            alert("Formulário enviado com sucesso");
+        })
+    </script>
 </body>
 </html>

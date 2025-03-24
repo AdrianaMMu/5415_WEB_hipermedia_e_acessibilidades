@@ -1,0 +1,53 @@
+<html> <head> <title>Validar Formulários com Javascript</title>
+<script language="javascript" type="text/javascript">
+function validar() {
+var nome = form1.nome.value;
+var email = form1.email.value;
+var pass = form1.pass.value;
+var rep_pass = form1.rep_pass.value;
+if (nome == "") {
+alert('Preencha o campo com seu nome');
+form1.nome.focus();
+return false;
+}
+if (email == "") {
+alert('Preencha o campo com seu email');
+form1.email.focus();
+return false;
+}
+if (pass == "") {
+alert('Preencha o campo com sua password');
+form1.pass.focus();
+return false;
+}
+if (rep_pass == "") {
+alert('Repita sua password');
+form1.rep_pass.focus();
+return false;
+}
+if (nome.length < 5) {
+alert('Digite seu nome completo');
+form1.nome.focus();
+return false;
+}
+if (pass != rep_pass) {
+alert('Passwords diferentes');
+form1.pass.focus();
+return false;
+}
+}
+</script>
+</head> <body>
+<form name="form1" action="#.php" method="post">
+Nome:
+<input name="nome" type="text"><br /><br />
+Email:
+<input name="email" type="text"><br /><br />
+password:
+<input name="pass" type="password"><br /><br />
+Repetir password:
+<input name="rep_pass" type="password"><br /><br />
+<input type="submit"  value="Enviar" onclick="return validar()">
+<input type="reset" value="Limpar">
+</form>
+</body> </html>
