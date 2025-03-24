@@ -1,0 +1,192 @@
+<!-- Website Acessível sobre Aquecimento Global com JQuery e Bootstrap -->
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aquecimento Global</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+    }
+    header, footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px;
+    }
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+    .accessible-button {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+    .content-section {
+        padding: 30px;
+        margin: 20px 0;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .row img {
+        width: 100%;
+        border-radius: 8px;
+    }
+</style>
+</head>
+<body>
+<!-- Cabeçalho -->
+<header class="text-center">
+<h1>Aquecimento Global</h1>
+<p>Entenda as causas, consequências e como combater o problema.</p>
+</header>
+ 
+    <!-- Menu de Navegação -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container">
+<a class="navbar-brand" href="#">Home</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav">
+<li class="nav-item"><a class="nav-link" href="#causas">Causas</a></li>
+<li class="nav-item"><a class="nav-link" href="#consequencias">Consequências</a></li>
+<li class="nav-item"><a class="nav-link" href="#solucoes">Soluções</a></li>
+</ul>
+</div>
+</div>
+</nav>
+ 
+    <!-- Modal para Imagem -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="imageModalLabel">Visualização de Imagem</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+</div>
+<div class="modal-body">
+<img id="modalImage" src="#" alt="Imagem Ampliada" class="img-fluid rounded">
+</div>
+</div>
+</div>
+</div>
+ 
+    <!-- Seção Causas -->
+<div class="container content-section" id="causas">
+<h2>Causas do Aquecimento Global</h2>
+<p>O aquecimento global é causado principalmente pela emissão de gases de efeito estufa, como o dióxido de carbono (CO2), resultante da queima de combustíveis fósseis e desmatamento.</p>
+<img src="desmatamento.jpg" alt="Desmatamento" class="img-fluid rounded modal-trigger" style="cursor: pointer;">
+</div>
+ 
+    <!-- Seção Consequências -->
+<div class="container content-section" id="consequencias">
+<h2>Consequências</h2>
+<p>As consequências incluem aumento das temperaturas, derretimento das calotas polares e elevação do nível do mar.</p>
+<img src="cpolares.png" alt="Calota Polar" class="img-fluid rounded modal-trigger" style="cursor: pointer;">
+</div>
+ 
+    <!-- Seção Soluções -->
+<div class="container content-section" id="solucoes">
+<h2>Soluções</h2>
+<p>Adotar práticas sustentáveis, como uso de energia renovável e reflorestamento, pode ajudar a combater o aquecimento global.</p>
+<button class="accessible-button" id="learnMore">Saiba Mais</button>
+</div>
+<!-- Script JQuery para Interatividade -->
+<script>
+    $(document).ready(function() {
+        // Ação do botão "Saiba Mais"
+        $('#learnMore').click(function() {
+            alert('Adote práticas sustentáveis e contribua para um planeta melhor!');
+        });
+
+        // Acção de clique para abrir a imagem no modal
+        $('.modal-trigger').click(function() {
+            var src = $(this).attr('src');
+            $('#modalImage').attr('src', src);
+            $('#imageModal').modal('show');
+        });
+
+        // Enviar formulário
+        $('#infoForm').submit(function(event) {
+            event.preventDefault();
+            alert('Formulário enviado com sucesso!');
+            $('#infoModal').modal('hide');
+            $('#infoForm')[0].reset();
+        });
+    });
+</script>
+<!-- Modal com Formulário -->
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="infoModalLabel">Pedido de Informações</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+    </div>
+    <div class="modal-body">
+    <form id="infoForm">
+    <div class="mb-3">
+    <label for="nome" class="form-label">Nome:</label>
+    <input type="text" class="form-control" id="nome" required>
+    </div>
+    <div class="mb-3">
+    <label for="email" class="form-label">Email:</label>
+    <input type="email" class="form-control" id="email" required>
+    </div>
+    <div class="mb-3">
+    <label for="mensagem" class="form-label">Mensagem:</label>
+    <textarea class="form-control" id="mensagem" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Enviar</button>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+     
+        <!-- Script JQuery para Interatividade -->
+    <script>
+            $(document).ready(function() {
+                // Ação do botão "Saiba Mais"
+                $('#learnMore').click(function() {
+                    alert('Adote práticas sustentáveis e contribua para um planeta melhor!');
+                });
+     
+                // Acção de clique para abrir a imagem no modal
+                $('.modal-trigger').click(function() {
+                    var src = $(this).attr('src');
+                    $('#modalImage').attr('src', src);
+                    $('#imageModal').modal('show');
+                });
+     
+                // Enviar formulário
+                $('#infoForm').submit(function(event) {
+                    event.preventDefault();
+                    alert('Formulário enviado com sucesso!');
+                    $('#infoModal').modal('hide');
+                    $('#infoForm')[0].reset();
+                });
+            });
+    </script>
+<!-- Rodapé -->
+<footer class="text-center">
+<p>&copy; 2025 - Projeto Educacional sobre Aquecimento Global</p>
+
+</footer>
+</body>
+</html>
