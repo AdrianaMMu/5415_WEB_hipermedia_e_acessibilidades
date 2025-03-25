@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto AI</title>
+    <style>
+        /*Header slide show*/
+        header{
+            position:relative;
+            text-align: center;
+            background-color:#222;
+            padding:20px;
+            
+        }
+
+        .slideshowcontainer{
+            max-width:100%;
+            position:relative;
+            height:300px;
+            overflow:hidden;
+            
+        }
+        
+        .slide_fade{
+            display:none;
+        }
+
+        .slide_fade img{
+            width:100%;
+            height:300px;
+            object-fit: cover;
+        }
+
+        .caption{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            background:rgba(0,0,0,0.7);
+            color:white;
+            padding: 10px;
+            border-radius: 5px;
+}
+
+        /*Galeria*/
+        .gallery
+        {
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: center;
+            gap:20px;
+        }
+
+        .img-container{
+            width:200px;
+          
+        }
+
+        .img-container img{
+            width:100%;
+            border-radius:10px;
+            cursor: pointer;
+            transition:0.3s ease;
+        }
+        .img-container img:hover{
+            transform:scale(1.1);
+        }
+        /*Tabs*/
+        .tab-container{
+            display:flex;
+            justify-content:center;
+            gap:10px;
+        }
+
+        .tab-button{
+            background-color:#4caf50;
+            color:white;
+            border:none;
+            padding:10px;
+            cursor:pointer;
+            border-radius:5px;
+        }
+        .tab-content{
+            display:none;
+            margin-top:20px;
+            text-align: left;
+        }
+        .tab-content.active{
+            display:block;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="slideshowcontainer">
+            <div class="slide_fade">
+                <img src="imagens/imagem1.png" alt="Inteligência Artificial">
+                    <div class="caption">
+                    A revolução da Inteligência Artificial
+                    </div>
+            </div>
+            <div class="slide_fade">
+                <img src="imagens/imagem2.png" alt="llm">
+                    <div class="caption">
+                    Machine Learning:O cerebro das Máquinas
+                    </div>
+            </div>
+            <div class="slide_fade">
+                <img src="imagens/imagem3.png" alt="redes neurais">
+                    <div class="caption">
+                    Redes Neurais: Cérebro Humano
+                    </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#tabs">Informações</a></li>
+            <li><a href="#equipa">Equipa</a></li>
+            <li><a href="#grafico">Gráfico</a></li>
+            <li><a href="#parceiros">Parceiros</a></li>
+            <li><a href="#formularios">Contacto</a></li>
+            <li><a href="#chatbot">ChatBot</a></li>
+        </ul>
+    </nav>
+    <section id="introducao">
+        <h1>O que é Inteligência Artificial</h1>
+        <p>Inteligência Artificial (IA) é a capacidade de máquinas aprenderem e realizarem tarefas que antes exigiam inteligência humana. A IA usa algoritmos e grandes volumes de dados para simular o raciocínio humano, permitindo reconhecer padrões em imagens, traduzir idiomas ou tomar decisões complexas.
+
+            As vantagens da IA são inúmeras, como a automação de processos, otimização de recursos e capacidade de analisar grandes quantidades de dados. Isso impulsiona a inovação em diversos setores, incluindo a área da saúde, indústrias e segurança.
+            
+            A rápida ascensão da IA também traz preocupações, como a privacidade dos dados, a possibilidade de vieses nos algoritmos e dependência dos sistemas automatizados. Além disso, a automatização de tarefas pode levar à perda de emprego em determinadas áreas.</p>
+            <img src="imagens/imagem4.jpg" alt="Inteligência Artificial">
+    </section>
+    <section id="galeria">
+        <h2>Sub-Tópicos da Inteligência Artificial</h2>
+        <div class="gallery">
+            <div class="img-container">
+                <img src="imagens/imagem5.jpg" alt="inteligencia ai">
+            </div>
+            <div class="img-container">
+                <img src="imagens/imagem5.jpg" alt="inteligencia ai">
+            </div>
+            <div class="img-container">
+                <img src="imagens/imagem5.jpg" alt="inteligencia ai">
+            </div>
+            <div class="img-container">
+                <img src="imagens/imagem5.jpg" alt="inteligencia ai">
+            </div>
+        </div>
+    </section>
+    <section id="tabs">
+        <h2>Mais informações sobre AI</h2>
+        <div class="tab-container">
+            <button class="tab-button">História</button>
+            <button class="tab-button">Aplicações</button>
+            <button class="tab-button">Desafios</button>
+        </div>
+        <div id="tab1" class="tab-content">
+            <h2>História da Inteligência Artificial</h2>
+            <p>A ideia de criar máquinas que imitassem a inteligência humana estava presente até mesmo nos tempos antigos, com mitos e lendas sobre autômatos e máquinas pensantes. No entanto, seu verdadeiro potencial somente foi investigado em meados do século XX, depois que os primeiros computadores eletrônicos foram desenvolvidos. </p>
+
+                <p>Em 1943, Warren McCulloch e Walter Pitts apresentaram seu modelo de neurônios artificiais, considerado a primeira inteligência artificial, embora o termo ainda não existisse. Mais tarde, em 1950, o matemático britânico Alan Turing publicou um artigo intitulado "Computing machinery and intelligence" (Maquinaria Computacional e Inteligência) na revista Mind, no qual fez a seguinte pergunta: As máquinas podem pensar? O informático propôs um experimento que veio a ser conhecido como Teste de Turing, que, segundo o autor, permitiria determinar se uma máquina poderia ter um comportamento inteligente semelhante ou indistinguível do comportamento de um ser humano.</p>
+                
+                <p>John McCarthy criou o termo "inteligência artificial" em 1956 e desenvolveu a primeira linguagem de programação da IA, a LISP, na década de 1960. Os primeiros sistemas de IA eram baseados em regras, o que levou ao desenvolvimento de sistemas mais complexos nas décadas de 1970 e 1980, juntamente com um aumento do financiamento. Atualmente, a IA está passando por um renascimento graças aos avanços em algoritmos, hardware e técnicas de aprendizado automático. </p>
+                
+                <p>Já na década de 1990, os avanços na capacidade de computação e a disponibilidade de grandes quantidades de dados permitiram que os pesquisadores desenvolvessem algoritmos de aprendizagem e estabelecessem as bases para a IA atual. Nos últimos anos, essa tecnologia contou com um crescimento expressivo, impulsionado em grande parte pelo desenvolvimento da aprendizagem profunda, que aproveita as redes neurais artificiais em camadas para processar e interpretar estruturas de dados complexas. Esse desenvolvimento revolucionou os aplicativos de IA, incluindo reconhecimento de imagem e fala, processamento de linguagem natural e sistemas autônomos.</p>
+                <img src="imagens/imagem5.jpg" alt="Inteligência Artificial">
+        </div>
+        <div id="tab2" class="tab-content">
+            <h2>História da Inteligência Artificial</h2>
+            <p>A ideia de criar máquinas que imitassem a inteligência humana estava presente até mesmo nos tempos antigos, com mitos e lendas sobre autômatos e máquinas pensantes. No entanto, seu verdadeiro potencial somente foi investigado em meados do século XX, depois que os primeiros computadores eletrônicos foram desenvolvidos. </p>
+
+                <p>Em 1943, Warren McCulloch e Walter Pitts apresentaram seu modelo de neurônios artificiais, considerado a primeira inteligência artificial, embora o termo ainda não existisse. Mais tarde, em 1950, o matemático britânico Alan Turing publicou um artigo intitulado "Computing machinery and intelligence" (Maquinaria Computacional e Inteligência) na revista Mind, no qual fez a seguinte pergunta: As máquinas podem pensar? O informático propôs um experimento que veio a ser conhecido como Teste de Turing, que, segundo o autor, permitiria determinar se uma máquina poderia ter um comportamento inteligente semelhante ou indistinguível do comportamento de um ser humano.</p>
+                
+                <p>John McCarthy criou o termo "inteligência artificial" em 1956 e desenvolveu a primeira linguagem de programação da IA, a LISP, na década de 1960. Os primeiros sistemas de IA eram baseados em regras, o que levou ao desenvolvimento de sistemas mais complexos nas décadas de 1970 e 1980, juntamente com um aumento do financiamento. Atualmente, a IA está passando por um renascimento graças aos avanços em algoritmos, hardware e técnicas de aprendizado automático. </p>
+                
+                <p>Já na década de 1990, os avanços na capacidade de computação e a disponibilidade de grandes quantidades de dados permitiram que os pesquisadores desenvolvessem algoritmos de aprendizagem e estabelecessem as bases para a IA atual. Nos últimos anos, essa tecnologia contou com um crescimento expressivo, impulsionado em grande parte pelo desenvolvimento da aprendizagem profunda, que aproveita as redes neurais artificiais em camadas para processar e interpretar estruturas de dados complexas. Esse desenvolvimento revolucionou os aplicativos de IA, incluindo reconhecimento de imagem e fala, processamento de linguagem natural e sistemas autônomos.</p>
+                <img src="imagens/imagem5.jpg" alt="Inteligência Artificial">
+        </div>
+        <div id="tab3" class="tab-content">
+            <h2>História da Inteligência Artificial</h2>
+            <p>A ideia de criar máquinas que imitassem a inteligência humana estava presente até mesmo nos tempos antigos, com mitos e lendas sobre autômatos e máquinas pensantes. No entanto, seu verdadeiro potencial somente foi investigado em meados do século XX, depois que os primeiros computadores eletrônicos foram desenvolvidos. </p>
+
+                <p>Em 1943, Warren McCulloch e Walter Pitts apresentaram seu modelo de neurônios artificiais, considerado a primeira inteligência artificial, embora o termo ainda não existisse. Mais tarde, em 1950, o matemático britânico Alan Turing publicou um artigo intitulado "Computing machinery and intelligence" (Maquinaria Computacional e Inteligência) na revista Mind, no qual fez a seguinte pergunta: As máquinas podem pensar? O informático propôs um experimento que veio a ser conhecido como Teste de Turing, que, segundo o autor, permitiria determinar se uma máquina poderia ter um comportamento inteligente semelhante ou indistinguível do comportamento de um ser humano.</p>
+                
+                <p>John McCarthy criou o termo "inteligência artificial" em 1956 e desenvolveu a primeira linguagem de programação da IA, a LISP, na década de 1960. Os primeiros sistemas de IA eram baseados em regras, o que levou ao desenvolvimento de sistemas mais complexos nas décadas de 1970 e 1980, juntamente com um aumento do financiamento. Atualmente, a IA está passando por um renascimento graças aos avanços em algoritmos, hardware e técnicas de aprendizado automático. </p>
+                
+                <p>Já na década de 1990, os avanços na capacidade de computação e a disponibilidade de grandes quantidades de dados permitiram que os pesquisadores desenvolvessem algoritmos de aprendizagem e estabelecessem as bases para a IA atual. Nos últimos anos, essa tecnologia contou com um crescimento expressivo, impulsionado em grande parte pelo desenvolvimento da aprendizagem profunda, que aproveita as redes neurais artificiais em camadas para processar e interpretar estruturas de dados complexas. Esse desenvolvimento revolucionou os aplicativos de IA, incluindo reconhecimento de imagem e fala, processamento de linguagem natural e sistemas autônomos.</p>
+                <img src="imagens/imagem5.jpg" alt="Inteligência Artificial">
+        </div>
+    </section>
+
+</body>
+</html>
