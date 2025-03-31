@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto AI</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css.css">
+<link rel="stylesheet" href="infinite-slider.css">
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<script src="chatbot.js"></script>
+<link rel="stylesheet" href="chatbot.css">
+
     <style>
         /*Header slide show*/
         header{
@@ -21,10 +32,11 @@
             overflow:hidden;
             
         }
-        
+        /*
         .slide_fade{
             display:none;
         }
+            */
 
         .slide_fade img{
             width:100%;
@@ -86,35 +98,122 @@
           
             margin-top:20px;
             text-align: left;
+            display:none;
         }
         .tab-content.active{
             display:block;
         }
+
+        /*Equipa*/
+        .team-container{
+            display:flex;
+            justify-content:center;
+            gap:20px;
+        }
+
+        .team-card{
+            background-color:#f4f4f4;
+            padding:20px;
+            text-align:center;
+            width:240px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .team-card img{
+            width:100%;
+            margin-bottom:10px;
+            border-radius: 50%;
+        }
+
+        #graficos{
+            text-align: center;
+            
+        }
+
+        #formulario {
+       width: 50%;
+       margin: 0 auto;
+       padding: 20px;
+       background-color: #f4f4f4;
+       border-radius: 8px;
+   }
+ 
+   #formulario label {
+       display: block;
+       margin: 10px 0 5px;
+   }
+ 
+   #formulario input, #formulario textarea {
+       width: 100%;
+       padding: 10px;
+       margin-bottom: 10px;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+   }
+ 
+   #formulario button {
+       padding: 10px 20px;
+       background-color: #4CAF50;
+       color: white;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+   }
+ 
+   #formulario button:hover {
+       background-color: #45a049;
+   }
+ 
+   #status {
+       margin-top: 20px;
+       font-weight: bold;
+       color: green;
+   }
+ 
 
     </style>
 </head>
 <body>
     <header>
         <div class="slideshowcontainer">
-            <div class="slide_fade">
+            <div class="slide-fade">
                 <img src="imagens/imagem1.png" alt="Inteligência Artificial">
                     <div class="caption">
                     A revolução da Inteligência Artificial
                     </div>
             </div>
-            <div class="slide_fade">
+            <div class="slide-fade">
                 <img src="imagens/imagem2.png" alt="llm">
                     <div class="caption">
                     Machine Learning:O cerebro das Máquinas
                     </div>
             </div>
-            <div class="slide_fade">
+            <div class="slide-fade">
                 <img src="imagens/imagem3.png" alt="redes neurais">
                     <div class="caption">
                     Redes Neurais: Cérebro Humano
                     </div>
             </div>
         </div>
+        <script>
+            let slideIndex = 0;
+ 
+        function showSlides() {
+     let slides = document.getElementsByClassName("slide-fade"); // Obtém todos os slides
+     for (let i = 0; i < slides.length; i++) {
+         slides[i].style.display = "none"; // Esconde todos os slides
+     }
+     slideIndex++;
+     if (slideIndex > slides.length) {
+         slideIndex = 1; // Reinicia quando chega ao último slide
+     }
+     slides[slideIndex - 1].style.display = "block"; // Mostra o slide atual
+     setTimeout(showSlides, 3000); // Troca de slide a cada 4 segundos
+ }
+  
+ // Inicia o slideshow quando a página carrega
+ document.addEventListener("DOMContentLoaded", showSlides);
+        </script>
     </header>
     <nav>
         <ul>
@@ -141,41 +240,43 @@
         <h2>Sub-Tópicos da Inteligência Artificial</h2>
         <div class="gallery">
             <div class="img-container">
-                <img src="imagens/imagem5.jpg" alt="inteligencia ai">
+                <img src="imagens/imagem1.png" alt="inteligencia ai">
             </div>
             <div class="img-container">
-                <img src="imagens/imagem5.jpg" alt="inteligencia ai">
+                <img src="imagens/imagem2.png" alt="inteligencia ai">
             </div>
             <div class="img-container">
-                <img src="imagens/imagem5.jpg" alt="inteligencia ai">
+                <img src="imagens/imagem3.png" alt="inteligencia ai">
             </div>
             <div class="img-container">
-                <img src="imagens/imagem5.jpg" alt="inteligencia ai">
+                <img src="imagens/imagem2.png" alt="inteligencia ai">
             </div>
             <div class="gallery">
                 <div class="img-container">
-                    <img src="imagens/imagem5.jpg" alt="inteligencia ai">
+                    <img src="imagens/imagem7.png" alt="inteligencia ai">
                 </div>
                 <div class="img-container">
-                    <img src="imagens/imagem5.jpg" alt="inteligencia ai">
+                    <img src="imagens/imagem6.jpg" alt="inteligencia ai">
                 </div>
                 <div class="img-container">
-                    <img src="imagens/imagem5.jpg" alt="inteligencia ai">
+                    <img src="imagens/imagem7.png" alt="inteligencia ai">
                 </div>
                 <div class="img-container">
-                    <img src="imagens/imagem5.jpg" alt="inteligencia ai">
+                    <img src="imagens/imagem6.jpg" alt="inteligencia ai">
                 </div>
         </div>
     </section>
     <section id="tabs">
         <h2>Mais informações sobre AI</h2>
         <div class="tab-container">
-            <button class="tab-button">História</button>
-            <button class="tab-button">Aplicações</button>
-            <button class="tab-button">Desafios</button>
+            <button class="tab-button" onclick="openTab(event,'tab1')">História</button>
+            <button class="tab-button" onclick="openTab(event,'tab2')">Aplicações</button>
+            <button class="tab-button" onclick="openTab(event,'tab3')">Desafios</button>
         </div>
+
         <div id="tab1" class="tab-content">
             <h2>História da Inteligência Artificial</h2>
+            
             <p>A ideia de criar máquinas que imitassem a inteligência humana estava presente até mesmo nos tempos antigos, com mitos e lendas sobre autômatos e máquinas pensantes. No entanto, seu verdadeiro potencial somente foi investigado em meados do século XX, depois que os primeiros computadores eletrônicos foram desenvolvidos. </p>
 
                 <p>Em 1943, Warren McCulloch e Walter Pitts apresentaram seu modelo de neurônios artificiais, considerado a primeira inteligência artificial, embora o termo ainda não existisse. Mais tarde, em 1950, o matemático britânico Alan Turing publicou um artigo intitulado "Computing machinery and intelligence" (Maquinaria Computacional e Inteligência) na revista Mind, no qual fez a seguinte pergunta: As máquinas podem pensar? O informático propôs um experimento que veio a ser conhecido como Teste de Turing, que, segundo o autor, permitiria determinar se uma máquina poderia ter um comportamento inteligente semelhante ou indistinguível do comportamento de um ser humano.</p>
@@ -187,27 +288,196 @@
         </div>
         <div id="tab2" class="tab-content">
             <h2>Aplicações da Inteligência Artificial</h2>
-            <p>A ideia de criar máquinas que imitassem a inteligência humana estava presente até mesmo nos tempos antigos, com mitos e lendas sobre autômatos e máquinas pensantes. No entanto, seu verdadeiro potencial somente foi investigado em meados do século XX, depois que os primeiros computadores eletrônicos foram desenvolvidos. </p>
+            
 
                 <p>Em 1943, Warren McCulloch e Walter Pitts apresentaram seu modelo de neurônios artificiais, considerado a primeira inteligência artificial, embora o termo ainda não existisse. Mais tarde, em 1950, o matemático britânico Alan Turing publicou um artigo intitulado "Computing machinery and intelligence" (Maquinaria Computacional e Inteligência) na revista Mind, no qual fez a seguinte pergunta: As máquinas podem pensar? O informático propôs um experimento que veio a ser conhecido como Teste de Turing, que, segundo o autor, permitiria determinar se uma máquina poderia ter um comportamento inteligente semelhante ou indistinguível do comportamento de um ser humano.</p>
                 
                 <p>John McCarthy criou o termo "inteligência artificial" em 1956 e desenvolveu a primeira linguagem de programação da IA, a LISP, na década de 1960. Os primeiros sistemas de IA eram baseados em regras, o que levou ao desenvolvimento de sistemas mais complexos nas décadas de 1970 e 1980, juntamente com um aumento do financiamento. Atualmente, a IA está passando por um renascimento graças aos avanços em algoritmos, hardware e técnicas de aprendizado automático. </p>
                 
                 <p>Já na década de 1990, os avanços na capacidade de computação e a disponibilidade de grandes quantidades de dados permitiram que os pesquisadores desenvolvessem algoritmos de aprendizagem e estabelecessem as bases para a IA atual. Nos últimos anos, essa tecnologia contou com um crescimento expressivo, impulsionado em grande parte pelo desenvolvimento da aprendizagem profunda, que aproveita as redes neurais artificiais em camadas para processar e interpretar estruturas de dados complexas. Esse desenvolvimento revolucionou os aplicativos de IA, incluindo reconhecimento de imagem e fala, processamento de linguagem natural e sistemas autônomos.</p>
-                <img src="imagens/imagem5.jpg" alt="Inteligência Artificial">
+                <img src="imagens/imagem6.jpg" alt="Inteligência Artificial">
         </div>
         <div id="tab3" class="tab-content">
             <h2>Desafios da Inteligência Artificial</h2>
-            <p>A ideia de criar máquinas que imitassem a inteligência humana estava presente até mesmo nos tempos antigos, com mitos e lendas sobre autômatos e máquinas pensantes. No entanto, seu verdadeiro potencial somente foi investigado em meados do século XX, depois que os primeiros computadores eletrônicos foram desenvolvidos. </p>
-
-                <p>Em 1943, Warren McCulloch e Walter Pitts apresentaram seu modelo de neurônios artificiais, considerado a primeira inteligência artificial, embora o termo ainda não existisse. Mais tarde, em 1950, o matemático britânico Alan Turing publicou um artigo intitulado "Computing machinery and intelligence" (Maquinaria Computacional e Inteligência) na revista Mind, no qual fez a seguinte pergunta: As máquinas podem pensar? O informático propôs um experimento que veio a ser conhecido como Teste de Turing, que, segundo o autor, permitiria determinar se uma máquina poderia ter um comportamento inteligente semelhante ou indistinguível do comportamento de um ser humano.</p>
-                
+            
                 <p>John McCarthy criou o termo "inteligência artificial" em 1956 e desenvolveu a primeira linguagem de programação da IA, a LISP, na década de 1960. Os primeiros sistemas de IA eram baseados em regras, o que levou ao desenvolvimento de sistemas mais complexos nas décadas de 1970 e 1980, juntamente com um aumento do financiamento. Atualmente, a IA está passando por um renascimento graças aos avanços em algoritmos, hardware e técnicas de aprendizado automático. </p>
                 
                 <p>Já na década de 1990, os avanços na capacidade de computação e a disponibilidade de grandes quantidades de dados permitiram que os pesquisadores desenvolvessem algoritmos de aprendizagem e estabelecessem as bases para a IA atual. Nos últimos anos, essa tecnologia contou com um crescimento expressivo, impulsionado em grande parte pelo desenvolvimento da aprendizagem profunda, que aproveita as redes neurais artificiais em camadas para processar e interpretar estruturas de dados complexas. Esse desenvolvimento revolucionou os aplicativos de IA, incluindo reconhecimento de imagem e fala, processamento de linguagem natural e sistemas autônomos.</p>
-                <img src="imagens/imagem5.jpg" alt="Inteligência Artificial">
+                <img src="imagens/imagem7.png" alt="Inteligência Artificial">
         </div>
-    </section>
+        </section>
+        <section id="equipa">
+            <h2>Nossa equipa</h2>
+                <div class="team-container">
+                    <div class="team-card">
+                        <img src="imagens/equipa/imagem2.avif"  alt="Membro da equipa">
+                        <h3>Roberto Carlos</h3>
+                        <p>Programador Full Stack</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="imagens/equipa/imagem1.jpg"  alt="Membro da equipa">
+                        <h3>Seu Jorge</h3>
+                        <p>Programador Especialista em IA</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="imagens/equipa/imagem3.avif"  alt="Membro da equipa">
+                        <h3>Caio Costello</h3>
+                        <p>Programador Design UX/UI</p>
+                    </div>
+                </div>
+                
+        </section>
+        <section id="graficos">
+            <h2>Gráficos</h2><br>
+            <canvas id="aiChart"> </canvas>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        var ctx = document.getElementById("aiChart").getContext("2d");
+                        var aiChart = new Chart(ctx, {
+                            type: "bar",
+                            data: {
+                                labels: ["Machine Learning", "Redes Neurais", "Visão Computacional", "Processamento de Linguagem", "Robótica"],
+                                datasets: [{
+                                    label: "Popularidade (%)",
+                                    data: [85, 78, 65, 72, 60],
+                                    backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50", "#9C27B0"]
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    });
+        </script>
 
+           
+        </section>
+        <section id="parceiros">
+            <div class="container">
+                <section class="logos">
+                        <div class ="slide"><img src="imagens/Logos/1.png" alt="parceiro1"></div>
+                        <div class ="slide"><img src="imagens/Logos/2.png" alt="parceiro2"></div>
+                        <div class ="slide"><img src="imagens/Logos/3.png" alt="parceiro3"></div>
+                        <div class ="slide"><img src="imagens/Logos/4.jpg" alt="parceiro4"></div>
+                        <div class ="slide"><img src="imagens/Logos/5.jpg" alt="parceiro5"></div>
+                        <div class ="slide"><img src="imagens/Logos/6.jpg" alt="parceiro6"></div>
+                        <div class ="slide"><img src="imagens/Logos/7.png" alt="parceiro7"></div>
+                        <div class ="slide"><img src="imagens/Logos/8.png" alt="parceiro8"></div>
+                        <div class ="slide"><img src="imagens/Logos/9.png" alt="parceiro9"></div>
+                        <div class ="slide"><img src="imagens/Logos/10.png" alt="parceiro10"></div>
+                </section>
+            </div>
+ 
+        </section>
+        <section id="formulario">
+            <h2>Formulário de Contato</h2>
+            <form id="contactForm">
+                 <label for="nome">Nome:</label>
+                 <input type="text" id="nome" name="nome" required>
+           
+                 <label for="email">Email:</label>
+                 <input type="email" id="email" name="email" required>
+           
+                 <label for="mensagem">Mensagem:</label>
+                 <textarea id="mensagem" name="mensagem" required></textarea>
+           
+                 <button type="submit">Enviar</button>
+             </form>
+             <p id="status"></p>
+          </section>
+        <section id="chatbot">
+            <h2>Chatbot</h2>
+            <div id="chatbox">
+                <div id="chatlogs"></div>
+                <input type="text" id="userInput" placeholder="Faça uma pergunta..." />
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
+ 
+        </section>
+<script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        $(document).ready(function(){
+  $('.logos').slick({
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 4
+      }
+    }, {
+      breakpoint: 520,
+      settings: {
+        slidesToShow: 3
+      }
+    }]
+  });
+});
+
+</script>
+<script>
+    $("form").submit(function(e){
+        e.preventDefault();
+        const nome=$("#nome").val();
+        const mail=$("#mail").val();
+        if(!nome||!mail)
+        {
+            alert("Todos os Campos são obrigatórios!");
+            return;
+        }
+        alert("Formulário enviado com sucesso!");
+    });
+</script>
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+         event.preventDefault();  // Impede o envio padrão do formulário
+   
+         // Coleta dos dados do formulário
+         const nome = document.getElementById('nome').value;
+         const email = document.getElementById('email').value;
+         const mensagem = document.getElementById('mensagem').value;
+   
+         // Criação do arquivo XML
+        const xmlData = `<?xml version="1.0" encoding="UTF-8"?>
+        <formulario>
+            <nome>${nome}</nome>
+            <email>${email}</email>
+            <mensagem>${mensagem}</mensagem>
+        </formulario>`;
+   
+         // Simulando o envio para um arquivo XML (sem backend, apenas para efeito de exemplo)
+         const blob = new Blob([xmlData], { type: 'application/xml' });
+         const link = document.createElement('a');
+         link.href = URL.createObjectURL(blob);
+         link.download = 'formulario.xml';
+         link.click();
+   
+         // Exibição de status
+        document.getElementById('status').innerText = 'Formulário enviado com sucesso!';
+     });
+  </script>
 </body>
 </html>
