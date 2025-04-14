@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+ 
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background: #f4f4f4;
+          color: #333;
+          padding: 20px;
+        }
+     
+        h2 {
+          text-align: center;
+        }
+     
+        input, button {
+          display: block;
+          margin: 10px auto;
+          padding: 10px;
+          font-size: 1em;
+        }
+     
+        .resultado {
+          margin-top: 20px;
+          text-align: center;
+          font-weight: bold;
+        }
+    label {
+          display: block;
+          margin-top: 15px;
+          font-weight: bold;
+        }
+     
+        input {
+          width: 20%;
+          padding: 10px;
+          margin-top: 5px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+        }
+     
+        button {
+          margin-top: 20px;
+          padding: 12px;
+          width: 20%;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+     
+        button:hover {
+          background-color: #0056b3;
+        }
+     
+        .resultado {
+          margin-top: 20px;
+          font-size: 18px;
+          color: #006400;
+          text-align: center;
+        }
+        @media (prefers-color-scheme: dark) {
+          body {
+            background: #121212;
+            color: #f4f4f4;
+          }
+     
+          input, .resultado {
+            background: #1e1e1e;
+            color: #fff;
+            border: 1px solid #444;
+          }
+     
+          button {
+            opacity: 0.95;
+          }
+     
+          button:hover {
+            opacity: 1;
+          }
+        }
+   
+     
+      </style>
+ 
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+ 
+</head>
+<body>
+    <h2>Calculadora Empréstimo Stand - Caio</h2>
+    <input type="number" id="valor" placeholder="Valor do Empréstimo (€)">
+    <input type="number" id="juros" placeholder="Taxa de Juros (%)">
+    <input type="number" id="anos" placeholder="Duração (Anos)">
+    <button onclick="calcular()">Calcular</button>
+    <button onclick="gerarPDF()">Guardar como PDF</button>
+    <button onclick="limpar()">Limpar</button>
+    <div id="resultado" class="resultado">
+       
+    </div>
+ 
+    <script>
+        function calcular(){
+            let valor = parseFloat(document.getElementById("valor").value);
+            let juros = parseFloat(document.getElementById("juros").value);
+            let anos = parseFloat(document.getElementById("anos").value);
+            if(!valor || !juros || !anos){
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+            let meses = anos * 12;
+            let taxa = juros / 100 / 12;
+            let prestacao = (valor * taxa) / (1 - Math.pow(1 + taxa, -meses));
+            let totalPago = prestacao * meses;
+            let totalJuros = totalPago - valor;
+            document.getElementById("resultado").innerHTML =
+            `Prestação Mensal: €${prestacao.toFixed(2)}<br>Total Pago: €${totalPago.toFixed(2)}<br>Total Juros: €${totalJuros.toFixed(2)}`;
+        }
+ 
+        function limpar(){
+            document.getElementById("valor").value = "";
+            document.getElementById("juros").value = "";
+            document.getElementById("anos").value = "";
+            document.getElementById("resultado").innerHTML = "";
+        }
+        async function gerarPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.text("Resumo do Empréstimo", 10, 10);
+      let texto = document.getElementById("resultado").innerText;
+      doc.text(texto, 10, 30);
+      doc.save("emprestimo.pdf");
+    }
+    </script>
+</body>
+</html>
